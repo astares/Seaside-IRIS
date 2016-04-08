@@ -4,7 +4,7 @@ Utility class for caching icons (preventing unnnecessary instances of Forms).
  
 "
 Class {
-	#name : #IRISToolIcons,
+	#name : #IRISIconCache,
 	#superclass : #Object,
 	#classVars : [
 		'IconCache'
@@ -16,7 +16,7 @@ Class {
 }
 
 { #category : #generate }
-IRISToolIcons class >> generateIcon [
+IRISIconCache class >> generateIcon [
 	<script>
 	| base64Contents fileName contentsMethod iconMethod | 
 	fileName := UIManager default fileOpen: 'Icon file' extensions: #('png').
@@ -59,13 +59,13 @@ IRISToolIcons class >> generateIcon [
 ]
 
 { #category : #'private - accessing' }
-IRISToolIcons class >> iconCache [
+IRISIconCache class >> iconCache [
 
 	^ IconCache ifNil: [ IconCache := Dictionary new ]
 ]
 
 { #category : #accessing }
-IRISToolIcons class >> iconNamed: aSymbol [
+IRISIconCache class >> iconNamed: aSymbol [
 	"Returns the icon with the given name"
 
 	^ self iconCache
@@ -76,7 +76,7 @@ IRISToolIcons class >> iconNamed: aSymbol [
 ]
 
 { #category : #'initialization-release' }
-IRISToolIcons class >> reset [
+IRISIconCache class >> reset [
 	"Reset the icon cache"	
 	<script>
 	
@@ -84,14 +84,14 @@ IRISToolIcons class >> reset [
 ]
 
 { #category : #icons }
-IRISToolIcons class >> serverIcon [
+IRISIconCache class >> serverIcon [
 	<script: 'self serverIcon inspect'>
 
 	^self iconNamed: #serverIcon
 ]
 
 { #category : #'private - icons' }
-IRISToolIcons class >> serverIconContents [
+IRISIconCache class >> serverIconContents [
 
 	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC0UlEQVR4Xo2SbU+SURzG+RS2
 hDdufQBtM0e58GHa8o2W3mbWkjbLhzURTTNEHnwowNKG2oM6JUWF2+fHTJ2aJaFCPlAzJygG
@@ -111,14 +111,14 @@ PwCyhvLlWzqQAwAAAABJRU5ErkJggg=='
 ]
 
 { #category : #icons }
-IRISToolIcons class >> serverStartIcon [
+IRISIconCache class >> serverStartIcon [
 	<script: 'self serverStartIcon inspect'>
 	
 	^self iconNamed: #serverStartIcon
 ]
 
 { #category : #'private - icons' }
-IRISToolIcons class >> serverStartIconContents [
+IRISIconCache class >> serverStartIconContents [
 
 	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADR0lEQVR4Xn2T71fTZRyG+S80
 4RV56k3Hc6jciTpHICnNOnVYfCWhCZiiCAxGlEbbhCg2TjQdIYlCwWIIU0crDhAiiOA8xL6B
@@ -140,14 +140,14 @@ O3TcsBEfn6B4kvkXxV9YN+ClYBQAAAAASUVORK5CYII='
 ]
 
 { #category : #icons }
-IRISToolIcons class >> serverStopIcon [
+IRISIconCache class >> serverStopIcon [
 	<script: 'self serverStopIcon inspect'>
 
 	^self iconNamed: #serverStopIcon
 ]
 
 { #category : #'private - icons' }
-IRISToolIcons class >> serverStopIconContents [
+IRISIconCache class >> serverStopIconContents [
 
 	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADQ0lEQVR4Xn2Ta0zTVxiHG+GD
 prilxuhGCH5RYrJsxokGvI24DBJmYLBWQDrYZthGwka5VNFkCIFMN7WbFVfhr4ZIVWyV1V28
