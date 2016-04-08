@@ -36,3 +36,10 @@ IRISWebserverSettings class >> deploymentMode: aMode [
 	
  
 ]
+
+{ #category : #'initialization-release' }
+IRISWebserverSettings class >> reset [
+	<script>
+	
+	DefaultPort := nil
+]
