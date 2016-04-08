@@ -3,12 +3,18 @@ IRIS Homepage
 "
 Class {
 	#name : #IRISHomepage,
-	#superclass : #WAComponent,
+	#superclass : #IRISRootComponent,
 	#instVars : [
 		'loginPage'
 	],
-	#category : #'IRIS-Web-UI-UI'
+	#category : #'IRIS-Web-UI-UI-General'
 }
+
+{ #category : #defaults }
+IRISHomepage class >> contextRoot [
+
+	^'home'
+]
 
 { #category : #initialization }
 IRISHomepage class >> initialize [
@@ -19,14 +25,9 @@ IRISHomepage class >> initialize [
 
 { #category : #registration }
 IRISHomepage class >> register [
-	"Register the application"
-	<script>
-	
-	|app|
-	app := WAAdmin register: self asApplicationAt: 'iris'.
-	WAAdmin defaultDispatcher defaultName: 'iris'.
-	app 
-		addLibrary: IRISFileLibrary 
+
+	super register.
+	WAAdmin defaultDispatcher defaultName: self contextRoot.	
 ]
 
 { #category : #rendering }
@@ -44,10 +45,4 @@ IRISHomepage >> initialize [
 { #category : #rendering }
 IRISHomepage >> renderContentOn: html [
 	html render: loginPage
-]
-
-{ #category : #rendering }
-IRISHomepage >> updateRoot: htmlRoot [
-	super updateRoot: htmlRoot.
-	htmlRoot title: 'IRIS'
 ]

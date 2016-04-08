@@ -5,8 +5,8 @@ http://bootsnipp.com/snippets/X0xm0
 "
 Class {
 	#name : #IRISLoginPage,
-	#superclass : #WAComponent,
-	#category : #'IRIS-Web-UI-UI'
+	#superclass : #IRISWebComponent,
+	#category : #'IRIS-Web-UI-UI-General'
 }
 
 { #category : #rendering }
@@ -45,7 +45,8 @@ IRISLoginPage >> renderContentOn: html [
 
 { #category : #styling }
 IRISLoginPage >> style [
-
+	<css>
+	
 	^'
 /*
  * Specific styles of signin component
