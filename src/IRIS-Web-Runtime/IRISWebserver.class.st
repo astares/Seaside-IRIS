@@ -21,7 +21,7 @@ IRISWebserver class >> clearWebSessions [
 IRISWebserver class >> debugWebSessions [
 	<script>
 		
-	(WADispatcher default handlerAt: IRISHomepage contextRoot) sessions inspect
+	self webSessions inspect
 ]
 
 { #category : #accessing }
@@ -77,6 +77,13 @@ IRISWebserver class >> stop [
 	<script>
 	
 	^self default stop
+]
+
+{ #category : #accessing }
+IRISWebserver class >> webSessions [
+	"Return the current web sessions"
+	
+	^(WADispatcher default handlerAt: IRISHomepage contextRoot) sessions
 ]
 
 { #category : #'private - defaults' }
