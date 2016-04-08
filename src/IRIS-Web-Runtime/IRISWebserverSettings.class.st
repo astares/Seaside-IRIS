@@ -6,7 +6,8 @@ Class {
 	#superclass : #Object,
 	#classVars : [
 		'DefaultPort',
-		'DeploymentMode'
+		'DeploymentMode',
+		'ResourceFolderName'
 	],
 	#category : #'IRIS-Web-Runtime-Settings'
 }
@@ -14,7 +15,7 @@ Class {
 { #category : #'settings - accessing' }
 IRISWebserverSettings class >> defaultPort [
 
-	^DefaultPort ifNil: [ DefaultPort := 80 ]
+	^DefaultPort ifNil: [ DefaultPort := 8080 ]
 ]
 
 { #category : #'settings - accessing' }
@@ -41,5 +42,20 @@ IRISWebserverSettings class >> deploymentMode: aMode [
 IRISWebserverSettings class >> reset [
 	<script>
 	
-	DefaultPort := nil
+	DefaultPort := ResourceFolderName := nil
+]
+
+{ #category : #'settings - accessing' }
+IRISWebserverSettings class >> resourceFolderName [
+	^ ResourceFolderName
+		ifNil: [ ResourceFolderName := (FileSystem workingDirectory / 'www')
+				ensureCreateDirectory;
+				fullName ]
+]
+
+{ #category : #'settings - accessing' }
+IRISWebserverSettings class >> resourceFolderName: aString [
+
+	ResourceFolderName := aString
+ 
 ]
