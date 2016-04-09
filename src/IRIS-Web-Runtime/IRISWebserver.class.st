@@ -10,6 +10,15 @@ Class {
 	#category : #'IRIS-Web-Runtime-Server'
 }
 
+{ #category : #'operating - running' }
+IRISWebserver class >> browse [
+	<script>
+	|baseURL|
+	baseURL := 'http://localhost'.
+	self defaultPort = 80 ifFalse: [ baseURL := baseURL ,':' , self defaultPort asString].
+	IRISWebbrowser openOn: baseURL.
+]
+
 { #category : #'operating - debugging' }
 IRISWebserver class >> clearWebSessions [
 	<script>
