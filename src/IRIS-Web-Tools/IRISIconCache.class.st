@@ -41,7 +41,7 @@ TkSuQmCC'
 IRISIconCache class >> generateIcon [
 	<script>
 	
-	| base64Contents fileName contentsMethod iconMethod | 
+	| base64Contents fileName contentsMethod iconMethod |  
 	fileName := UIManager default fileOpen: 'Icon file' extensions: #('png').
 	fileName ifNil: [ ^ self ].
 	iconName := UIManager default request: 'Icon name' initialAnswer: 'blank'.
@@ -96,6 +96,25 @@ IRISIconCache class >> iconNamed: aSymbol [
 		ifAbsentPut: [ 
 			Form
 				fromBinaryStream: (Base64MimeConverter mimeDecodeToBytes: (self perform: (aSymbol , 'Contents') asSymbol) readStream) ]
+]
+
+{ #category : #icons }
+IRISIconCache class >> mailIcon [
+	<script: 'self mailIcon inspect'>
+
+	^self iconNamed: #mailIcon
+]
+
+{ #category : #'private - icons' }
+IRISIconCache class >> mailIconContents [
+
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABP0lEQVR42sWS607CQBCFT7eU
+lraAXBJQjPEaJSY+gg/vI5iYjfEaIwoJF4FtobTdOm3x9oeIkHiS/TO7882Z2VGwopR1AEw6
+O3/Mf4oBJ2PX53Yus1SmmATIm1ozAVxc9XjZ1nC4aULX1IWJnh/i9tVFX/g4P62kgMvHIY8i
+YETUCoGOGzYY+zkeKSNctwR6lFggtwpdn+0WU8DNi+AfD6dUoT3wcFA3sVezkthDx8Fd20W9
+pMP45vBoy04Bz133E+AHEe47AlpGTRzFiiv6QYj9mk3xL2fbVTMFdEdeAhi7M7yJGRpVK2lB
+xn2RGPmNW2h1HWzYWRpeNolXC3oKEBOfD8ZTqCpD0dIXDnHoeAhDiVLegJ2b/0J/KLiVM5Ah
+wG8UEMCZTFEuzmcgpeSKstxSRtQeY6y5lk1cSf8PeAfo13qNB4pTawAAAABJRU5ErkJggg=='
 ]
 
 { #category : #'initialization-release' }
