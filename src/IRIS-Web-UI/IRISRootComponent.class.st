@@ -36,5 +36,5 @@ IRISRootComponent class >> register [
 { #category : #rendering }
 IRISRootComponent >> updateRoot: htmlRoot [
 	super updateRoot: htmlRoot.
-	htmlRoot title: 'IRIS'
+	htmlRoot title: 'Pharo'
 ]
