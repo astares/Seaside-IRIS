@@ -77,23 +77,26 @@ IRISWebserverSettings class >> resourceFolderName: aString [
 
 { #category : #settings }
 IRISWebserverSettings class >> serverSettingsOn: aBuilder [
-	<systemsettings>  
-	<webserversettings>
+	<irissettings>
 	
-	(aBuilder group: #webServer)
+	(aBuilder group: #irisWebServer)
+		icon: IRISIconCache serverIcon;
 		label: 'Webserver';
 		description: 'Web server settings';
 		with: [    		  
 			(aBuilder setting: #resourceFolderName)
 				type: #Directory;
 				target: self;
+				icon: IRISIconCache serverIcon;
 				description: 'The path of a directory where static resources are hosted' ;
-				label: 'Default local resource folder directory'.
+				label: 'Resource folder directory'.
 			(aBuilder setting: #defaultPort)
-						label: 'Default Port' ;
+						icon: IRISIconCache serverIcon;
+						label: 'Default Port';
 						description: 'The HTTP port'.	
 			(aBuilder pickOne: #deploymentMode)
 				type: #Boolean;
+				icon: IRISIconCache serverIcon;
 				target: self;
 				description: 'Production or development';
 				label: 'Deployment mode';
