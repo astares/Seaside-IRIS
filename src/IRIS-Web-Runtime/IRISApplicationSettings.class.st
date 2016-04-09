@@ -28,12 +28,12 @@ IRISApplicationSettings class >> applicationSettingsOn: aBuilder [
 	
 	(aBuilder group: #irisApplication)
 		label: 'Application';
-		icon: (IRISIconCache appIcon);
+		icon: IRISIconCache appIcon;
 		description: 'Application settings';
 		with: [    		  
 			(aBuilder 
 				setting: #applicationName)
-				icon: (IRISIconCache appIcon);
+				icon: IRISIconCache appIcon;
 				label: 'Application name' ;
 				description: 'The name of the application' ]
 ]
