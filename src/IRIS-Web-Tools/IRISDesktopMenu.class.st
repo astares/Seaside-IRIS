@@ -30,3 +30,32 @@ IRISDesktopMenu class >> menuCommandOn: aBuilder [
 		parent: parent;
 		action: [ SettingBrowser openIRISSettings ]
 ]
+
+{ #category : #'world menu' }
+IRISDesktopMenu class >> serverMenuCommandOn: aBuilder [ 
+	<worldMenu>
+	
+	|parent|
+	parent := self mainMenuSymbol.
+	(aBuilder item: #'Webserver')
+		parent: parent;
+		order: 2;	
+		icon: IRISIconCache serverIcon.
+	
+	(aBuilder item: #'Start webserver')
+		parent: #'Webserver';
+		icon: IRISIconCache serverStartIcon;
+		action: [ IRISWebserver start ].
+	
+	(aBuilder item: #'Stop webserver')
+		parent: #'Webserver';
+		icon: IRISIconCache serverStopIcon;
+		action: [ IRISWebserver stop ].
+				
+	aBuilder withSeparatorAfter.
+
+	(aBuilder item: #'Browse')
+		parent: #'Webserver';
+		icon: IRISIconCache serverIcon;
+		action: [ IRISWebserver browse ]			
+]
