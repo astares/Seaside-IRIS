@@ -3,7 +3,7 @@ Settings for the mail server
 "
 Class {
 	#name : #IRISMailserverSettings,
-	#superclass : #Object,
+	#superclass : #IRISSettings,
 	#classVars : [
 		'MailServer'
 	],
@@ -28,12 +28,12 @@ IRISMailserverSettings class >> mailSettingsOn: aBuilder [
 	
 	(aBuilder group: #irisMail)
 		label: 'Mail';
-		icon: IRISIconCache mailIcon;
+		icon: self iconProvider mailIcon;
 		description: 'Mail settings';
 		with: [    		  
 			(aBuilder 
 				setting: #mailServer)
-				icon: IRISIconCache mailIcon;
+				icon: self iconProvider mailIcon;
 				label: 'Mail server' ;
 				description: 'The name of the mailserver' ]
 ]

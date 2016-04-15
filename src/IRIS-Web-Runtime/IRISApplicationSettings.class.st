@@ -3,7 +3,7 @@ Settings for the application
 "
 Class {
 	#name : #IRISApplicationSettings,
-	#superclass : #Object,
+	#superclass : #IRISSettings,
 	#classVars : [
 		'ApplicationName'
 	],
@@ -28,12 +28,12 @@ IRISApplicationSettings class >> applicationSettingsOn: aBuilder [
 	
 	(aBuilder group: #irisApplication)
 		label: 'Application';
-		icon: IRISIconCache appIcon;
+		icon: self iconProvider appIcon;
 		description: 'Application settings';
 		with: [    		  
 			(aBuilder 
 				setting: #applicationName)
-				icon: IRISIconCache appIcon;
+				icon: self iconProvider appIcon;
 				label: 'Application name' ;
 				description: 'The name of the application' ]
 ]

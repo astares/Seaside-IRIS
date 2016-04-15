@@ -3,7 +3,7 @@ Settings for the web server
 "
 Class {
 	#name : #IRISWebserverSettings,
-	#superclass : #Object,
+	#superclass : #IRISSettings,
 	#classVars : [
 		'DefaultPort',
 		'DeploymentMode',
@@ -80,23 +80,23 @@ IRISWebserverSettings class >> serverSettingsOn: aBuilder [
 	<irissettings>
 	
 	(aBuilder group: #irisWebServer)
-		icon: IRISIconCache serverIcon;
+		icon: self iconProvider serverIcon;
 		label: 'Webserver';
 		description: 'Web server settings';
 		with: [    		  
 			(aBuilder setting: #resourceFolderName)
 				type: #Directory;
 				target: self;
-				icon: IRISIconCache serverIcon;
+				icon: self iconProvider serverIcon;
 				description: 'The path of a directory where static resources are hosted' ;
 				label: 'Resource folder directory'.
 			(aBuilder setting: #defaultPort)
-						icon: IRISIconCache serverIcon;
+						icon: self iconProvider serverIcon;
 						label: 'Default Port';
 						description: 'The HTTP port'.	
 			(aBuilder pickOne: #deploymentMode)
 				type: #Boolean;
-				icon: IRISIconCache serverIcon;
+				icon: self iconProvider serverIcon;
 				target: self;
 				description: 'Production or development';
 				label: 'Deployment mode';
@@ -104,7 +104,7 @@ IRISWebserverSettings class >> serverSettingsOn: aBuilder [
 							
 			(aBuilder setting: #webSessions)				 
 				target: self;
-				icon: IRISIconCache serverIcon;
+				icon: self iconProvider serverIcon;
 				label: 'Sessions';
 				description: 'Session control';
      			precondition: [ self webSessions notEmpty ]; 
