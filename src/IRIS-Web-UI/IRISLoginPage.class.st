@@ -6,33 +6,23 @@ http://bootsnipp.com/snippets/X0xm0
 Class {
 	#name : #IRISLoginPage,
 	#superclass : #IRISWebComponent,
+	#instVars : [
+		'loginDialog'
+	],
 	#category : #'IRIS-Web-UI-UI-General'
 }
 
-{ #category : #rendering }
-IRISLoginPage >> cardHTML [ 
+{ #category : #accessing }
+IRISLoginPage >> children [
 
-^'<div class="container">
-        <div class="card card-container">
-             
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember Me!
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Let''s Go!</button>
-            </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot your password?
-            </a>
-        </div><!-- /card-container -->
-    </div>'
+	^Array with: loginDialog
+]
+
+{ #category : #initialization }
+IRISLoginPage >> initialize [
+
+	super initialize.
+	loginDialog := IRISLoginDialog new.
 ]
 
 { #category : #rendering }
@@ -40,7 +30,16 @@ IRISLoginPage >> renderContentOn: html [
 
 	html div 
 		class: 'container';
-		with: [ html html: self cardHTML ]
+		with: [ self renderLoginCardOn: html ]
+]
+
+{ #category : #'private - rendering' }
+IRISLoginPage >> renderLoginCardOn: html [ 
+
+	html div 	
+		class: 'card';
+		class: 'card-container';
+		with: [ html render: loginDialog ]
 ]
 
 { #category : #styling }

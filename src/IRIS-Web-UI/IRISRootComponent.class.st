@@ -24,12 +24,12 @@ IRISRootComponent class >> contextRoot [
 { #category : #registration }
 IRISRootComponent class >> register [
 	"Register the application"
-	<script>
 	
 	|application|
 	application := WAAdmin register: self asApplicationAt: self contextRoot.	
 	application 
-		addLibrary: IRISFileLibrary.
+		addLibrary: IRISFileLibrary;
+		addLibrary: TBSDeploymentLibrary.
 	^application
 ]
 
