@@ -19,12 +19,22 @@ IRISLoginDialog >> renderContentOn: html [
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderFormOn: html [
-		html
-			html:
-			'<form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
+IRISLoginDialog >> renderFormContentOn: html [ 
+
+	html html: '<span id="reauth-email" class="reauth-email"></span>'.
+
+	html tbsInputGroup: [ 
+		html tbsInputGroupAddOn: '@'.
+		html textInput
+			id: 'inputEmail'; 
+			tbsFormControl;
+			placeholder: 'Username' ].
+
+
+
+	html
+		html:
+			'
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 <div id="remember" class="checkbox">
                     <label>
@@ -32,7 +42,16 @@ IRISLoginDialog >> renderFormOn: html [
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Let''s Go!</button>
-            </form>'
+	'
+	 
+]
+
+{ #category : #'private - rendering' }
+IRISLoginDialog >> renderFormOn: html [
+		html form 	
+				class: 'form-signin';
+				with: [ self renderFormContentOn: html ]
+		
 ]
 
 { #category : #'private - rendering' }
