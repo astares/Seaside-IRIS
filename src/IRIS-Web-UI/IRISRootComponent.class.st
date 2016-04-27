@@ -30,6 +30,7 @@ IRISRootComponent class >> register [
 	application := WAAdmin register: self asApplicationAt: self contextRoot.	
 	application 
 		addLibrary: IRISFileLibrary;
+		addLibrary: JQDeploymentLibrary;
 		addLibrary: TBSDevelopmentLibrary;
 		addLibrary: FAWDevelopmentLibrary. 
 	^application

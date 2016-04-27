@@ -141,7 +141,7 @@ body, html {
     box-sizing: border-box;
 }
 
-.form-signin #inputEmail,
+.form-signin #inputUsername,
 .form-signin #inputPassword {
     direction: ltr;
     height: 44px;
