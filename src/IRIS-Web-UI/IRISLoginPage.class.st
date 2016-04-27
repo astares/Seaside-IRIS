@@ -127,25 +127,30 @@ body, html {
     box-sizing: border-box;
 }
 
-.form-signin #inputEmail,
-.form-signin #inputPassword {
-    direction: ltr;
-    height: 44px;
-    font-size: 16px;
-}
-
 .form-signin input[type=email],
 .form-signin input[type=password],
 .form-signin input[type=text],
 .form-signin button {
     width: 100%;
-    display: block;
-    margin-bottom: 10px;
+    display: block;	 
     z-index: 1;
+	margin-bottom: 10px;
     position: relative;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+	 margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.form-signin div[class=input-group] { 
+	margin-bottom: 10px;
 }
 
 .form-signin .form-control:focus {
