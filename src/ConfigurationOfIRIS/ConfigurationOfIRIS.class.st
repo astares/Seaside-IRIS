@@ -133,18 +133,23 @@ ConfigurationOfIRIS >> baseline01: spec [
 					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/WebBrowser/main/' ].
 		spec 
 			package: 'IRIS-Core-Utilities';
+			package: 'IRIS-Tests-Web-UI' with: [
+				spec requires: #('IRIS-Web-UI' ). ];
 			package: 'IRIS-Web-Components' with: [
 				spec requires: #('FontAwesome' 'HTML5Shiv' ). ];
-			package: 'IRIS-Web-UI' with: [
-				spec requires: #('IRIS-Web-Components' ). ];
 			package: 'IRIS-Web-Runtime' with: [
 				spec requires: #('IRIS-Web-UI' ). ];
 			package: 'IRIS-Web-Tools' with: [
-				spec requires: #('IRIS-Web-Runtime' 'WebBrowser' ). ].
+				spec requires: #('IRIS-Web-Runtime' 'WebBrowser' ). ];
+			package: 'IRIS-Web-UI' with: [
+				spec requires: #('IRIS-Web-Components' ). ].
 		spec 
 			group: 'Core' with: #('IRIS-Core-Utilities' );
+			group: 'Tests' with: #('IRIS-Tests-Web-UI' );
+			group: 'Tools' with: #('IRIS-Web-Tools' );
 			group: 'Web' with: #('IRIS-Web-Components' 'IRIS-Web-UI' );
-			group: 'Tools' with: #('IRIS-Web-Tools' ). ].
+			group: 'all' with: #('Core' 'Web' 'Tools' 'Tests' );
+			group: 'default' with: #('all' ). ].
 
 ]
 
