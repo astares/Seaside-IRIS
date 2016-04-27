@@ -23,19 +23,14 @@ IRISLoginDialog >> renderFormContentOn: html [
 
 	html html: '<span id="reauth-email" class="reauth-email"></span>'.
 
-	html tbsInputGroup: [ 
-		html tbsInputGroupAddOn: '@'.
-		html textInput
-			id: 'inputEmail'; 
-			tbsFormControl;
-			placeholder: 'Username' ].
-
+	self renderUserNameOn: html.
+	self renderPasswordOn: html.
 
 
 	html
 		html:
 			'
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+               
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember Me!
@@ -63,6 +58,21 @@ IRISLoginDialog >> renderImageOn: html [
 ]
 
 { #category : #'private - rendering' }
+IRISLoginDialog >> renderPasswordOn: html [
+
+	html
+		tbsInputGroup: [
+			html tbsInputGroupAddOn: [ html tbsGlyphIcon iconLock ].
+			html passwordInput 
+				tbsFormControl;
+				id: 'inputPassword';
+				placeholder: 'Password'; 
+				"callback: [ :value | credentials password: value ];	"
+				required. 
+			]
+]
+
+{ #category : #'private - rendering' }
 IRISLoginDialog >> renderProfileNameOn: html [
 
 	html paragraph 
@@ -70,4 +80,25 @@ IRISLoginDialog >> renderProfileNameOn: html [
 		class: 'profile-name-card';
 		with: 'Please login'
 
+]
+
+{ #category : #'private - rendering' }
+IRISLoginDialog >> renderUserNameOn: html [
+	html
+		tbsInputGroup: [ 			
+			IRISApplicationSettings loginNameType = #email
+				ifTrue: [ html tbsInputGroupAddOn: [ html tbsGlyphIcon iconEnvelope ].
+					html emailInput
+						id: 'inputEmail';
+						tbsFormControl;
+						placeholder: 'E-Mail';
+						required;
+						autofocus ]
+				ifFalse: [ html tbsInputGroupAddOn: [ html tbsGlyphIcon iconUser ].
+					html textInput
+						id: 'inputEmail';
+						tbsFormControl;
+						placeholder: 'Username';
+						required;
+						autofocus ] ]
 ]
