@@ -89,16 +89,40 @@ IRISLoginDialog >> renderUserNameOn: html [
 			IRISApplicationSettings loginNameType = #email
 				ifTrue: [ html tbsInputGroupAddOn: [ html tbsGlyphIcon iconEnvelope ].
 					html emailInput
-						id: 'inputEmail';
+						id: 'inputUsername';
 						tbsFormControl;
 						placeholder: 'E-Mail';
 						required;
 						autofocus ]
 				ifFalse: [ html tbsInputGroupAddOn: [ html tbsGlyphIcon iconUser ].
 					html textInput
-						id: 'inputEmail';
+						id: 'inputUsername';
 						tbsFormControl;
 						placeholder: 'Username';
 						required;
 						autofocus ] ]
+]
+
+{ #category : #scripting }
+IRISLoginDialog >> script [
+	"This script checks for ENTER in the edit fields and if pressed triggers a click (submit) on the login dialog.
+	 see http://stackoverflow.com/questions/8294465/making-enter-key-on-an-html-form-submit-instead-of-activating-button
+	"
+	
+	^' 
+						$("#inputUsername").focus();
+  		    		   $("#inputUsername").select();
+			 
+    		     		        
+	
+    	$("#form-signin input").keypress(function (e) {
+			alert("hi");
+		  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {				
+            $("#loginDialog button[type=submit]").click();
+            return false;
+        } else {
+            return true;
+        }
+    });
+	'
 ]
