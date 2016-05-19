@@ -116,6 +116,16 @@ ConfigurationOfIRIS >> baseline01: spec [
 		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/TorstenBergmann/IRIS/main/'.
 		spec 
+			project: 'AnimateCSS' with: [
+				spec
+					className: #ConfigurationOfAnimateCSS;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/AnimateCSS/main/' ];
+			project: 'CSS3Pie' with: [
+				spec
+					className: #ConfigurationOfCSS3Pie;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/CSS3Pie/main/' ];
 			project: 'FontAwesome' with: [
 				spec
 					className: #ConfigurationOfFontAwesome;
@@ -136,7 +146,7 @@ ConfigurationOfIRIS >> baseline01: spec [
 			package: 'IRIS-Tests-Web-UI' with: [
 				spec requires: #('IRIS-Web-UI' ). ];
 			package: 'IRIS-Web-Components' with: [
-				spec requires: #('FontAwesome' 'HTML5Shiv' ). ];
+				spec requires: #('FontAwesome' 'HTML5Shiv' 'AnimateCSS' 'CSS3Pie' ). ];
 			package: 'IRIS-Web-Runtime' with: [
 				spec requires: #('IRIS-Web-UI' ). ];
 			package: 'IRIS-Web-Tools' with: [
