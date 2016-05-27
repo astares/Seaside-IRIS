@@ -116,6 +116,11 @@ ConfigurationOfIRIS >> baseline01: spec [
 		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/TorstenBergmann/IRIS/main/'.
 		spec 
+			project: 'AddToHomeScreen' with: [
+				spec
+					className: #ConfigurationOfAddToHomeScreen;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/AddToHomeScreen/main/' ];
 			project: 'AnimateCSS' with: [
 				spec
 					className: #ConfigurationOfAnimateCSS;
@@ -146,7 +151,7 @@ ConfigurationOfIRIS >> baseline01: spec [
 			package: 'IRIS-Tests-Web-UI' with: [
 				spec requires: #('IRIS-Web-UI' ). ];
 			package: 'IRIS-Web-Components' with: [
-				spec requires: #('FontAwesome' 'HTML5Shiv' 'AnimateCSS' 'CSS3Pie' ). ];
+				spec requires: #('FontAwesome' 'HTML5Shiv' 'AnimateCSS' 'CSS3Pie' 'AddToHomeScreen' ). ];
 			package: 'IRIS-Web-Runtime' with: [
 				spec requires: #('IRIS-Web-UI' ). ];
 			package: 'IRIS-Web-Tools' with: [
