@@ -60,9 +60,9 @@ IRISHomepage >> updateRoot: htmlRoot [
 		responseHeaderName: 'X-UA-Compatible';
 		content: 'IE=edge,chrome=1'.
 
-	#('viewport'                      'width=device-width, initial-scale=1'
-	  'apple-mobile-web-app-capable'  'yes'
-	  'mobile-web-app-capable'        'yes'
-	  'apple-mobile-web-app-title' 'Myname'
-	) pairsDo: [:x :y |htmlRoot meta name: x; content: y ]
+	{'viewport'.                      'width=device-width, initial-scale=1'.
+	  'apple-mobile-web-app-capable'.  'yes'.
+	  'mobile-web-app-capable'.        'yes'.
+	  'apple-mobile-web-app-title'. IRISApplicationSettings applicationName.
+	} pairsDo: [:x :y |htmlRoot meta name: x; content: y ]
 ]
