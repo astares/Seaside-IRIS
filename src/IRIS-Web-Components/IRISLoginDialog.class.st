@@ -110,12 +110,10 @@ IRISLoginDialog >> script [
 	"
 	
 	^' 
-						$("#inputUsername").focus();
-  		    		   $("#inputUsername").select();
+	$("#inputUsername").focus();
+$("#inputUsername").select();
 			 
-    		     		        
-	
-    	$("#form-signin input").keypress(function (e) {
+$("#form-signin input").keypress(function (e) {
 			alert("hi");
 		  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {				
             $("#loginDialog button[type=submit]").click();
