@@ -38,6 +38,7 @@ IRISRootComponent class >> register [
 
 { #category : #rendering }
 IRISRootComponent >> updateRoot: htmlRoot [
-	super updateRoot: htmlRoot.
-	htmlRoot title: 'Pharo'
+	super updateRoot: htmlRoot.	
+	htmlRoot title: IRISApplicationSettings applicationName.	
+	
 ]
