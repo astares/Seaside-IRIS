@@ -116,6 +116,11 @@ ConfigurationOfIRIS >> baseline01: spec [
 		spec blessing: #'baseline'.
 		spec repository: 'http://smalltalkhub.com/mc/TorstenBergmann/IRIS/main/'.
 		spec 
+			project: 'FontAwesome' with: [
+				spec
+					className: #ConfigurationOfFontAwesome;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/FontAwesome/main/' ];
 			project: 'AddToHomeScreen' with: [
 				spec
 					className: #ConfigurationOfAddToHomeScreen;
@@ -131,11 +136,7 @@ ConfigurationOfIRIS >> baseline01: spec [
 					className: #ConfigurationOfCSS3Pie;
 					versionString: #'stable';
 					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/CSS3Pie/main/' ];
-			project: 'FontAwesome' with: [
-				spec
-					className: #ConfigurationOfFontAwesome;
-					versionString: #'stable';
-					repository: 'http://smalltalkhub.com/mc/TorstenBergmann/FontAwesome/main/' ];
+			
 			project: 'HTML5Shiv' with: [
 				spec
 					className: #ConfigurationOfHTML5Shiv;
