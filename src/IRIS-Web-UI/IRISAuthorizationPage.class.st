@@ -33,7 +33,14 @@ IRISAuthorizationPage >> renderCardContainerOn: html [
 	html div 	
 		class: 'card';
 		class: 'card-container';
-		with: [ html 
+		with: [ 
+			html html: ' <h4 style="border-bottom: 1px solid #c5c5c5;">
+    <i class="glyphicon glyphicon-user">
+    </i>
+    Account Access
+  </h4>'. html break.
+			
+			html 
 					render: reminderComponent;
 					render: loginComponent ]
 ]
