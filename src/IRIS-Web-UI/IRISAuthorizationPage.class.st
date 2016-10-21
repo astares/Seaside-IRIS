@@ -4,46 +4,51 @@ The login page following
 http://bootsnipp.com/snippets/X0xm0
 "
 Class {
-	#name : #IRISLoginPage,
+	#name : #IRISAuthorizationPage,
 	#superclass : #IRISWebComponent,
 	#instVars : [
-		'loginDialog'
+		'loginComponent',
+		'reminderComponent'
 	],
 	#category : #'IRIS-Web-UI-UI-General'
 }
 
 { #category : #accessing }
-IRISLoginPage >> children [
+IRISAuthorizationPage >> children [
 
-	^Array with: loginDialog
+	^Array with: loginComponent with: reminderComponent
 ]
 
 { #category : #initialization }
-IRISLoginPage >> initialize [
+IRISAuthorizationPage >> initialize [
 
 	super initialize.
-	loginDialog := IRISLoginDialog new.
-]
-
-{ #category : #rendering }
-IRISLoginPage >> renderContentOn: html [
-
-	html div 
-		class: 'container';
-		with: [ self renderLoginCardOn: html ]
+	loginComponent := IRISLoginComponent new.
+	reminderComponent := IRISReminderComponent new.
 ]
 
 { #category : #'private - rendering' }
-IRISLoginPage >> renderLoginCardOn: html [ 
+IRISAuthorizationPage >> renderCardContainerOn: html [ 
 
 	html div 	
 		class: 'card';
 		class: 'card-container';
-		with: [ html render: loginDialog ]
+		with: [ html 
+					render: reminderComponent;
+					render: loginComponent ]
+]
+
+{ #category : #rendering }
+IRISAuthorizationPage >> renderContentOn: html [
+
+	html div 
+		class: 'container';
+		with: [ self renderCardContainerOn: html ].
+	html script: self toggleScript	
 ]
 
 { #category : #styling }
-IRISLoginPage >> style [
+IRISAuthorizationPage >> style [
 	<css>
 	
 	^'
@@ -194,4 +199,22 @@ body, html {
 .forgot-password:focus{
     color: #004e99;
 }'
+]
+
+{ #category : #styling }
+IRISAuthorizationPage >> toggleScript [
+	"This script toggles the login and the password reminder component. See http://bootsnipp.com/snippets/featured/login-amp-password-reminder"
+	
+	^'
+	$("#action-reminder").click(function(e) {
+    	e.preventDefault();
+    	$(".form-authorization").toggle("500");
+  });
+
+	$("#action-login").click(function(e) {
+    	e.preventDefault();
+    	$(".form-authorization").toggle("500");
+  });
+	
+	'
 ]

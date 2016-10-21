@@ -43,7 +43,7 @@ IRISHomepage >> children [
 IRISHomepage >> initialize [
 
 	super initialize.
-	loginPage := IRISLoginPage new.
+	loginPage := IRISAuthorizationPage new.
 ]
 
 { #category : #rendering }
