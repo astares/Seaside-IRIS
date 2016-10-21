@@ -19,6 +19,26 @@ IRISAuthorizationPage >> children [
 	^Array with: loginComponent with: reminderComponent
 ]
 
+{ #category : #rendering }
+IRISAuthorizationPage >> htmlVideo [
+	"see http://www.beachfrontbroll.com/p/cities-and-traffic.html"
+	
+	^'<video width="300" height="150" autoplay="autoplay" loop="loop" muted="" style="
+	 position: fixed;
+  top: 50%; left: 50%;
+  z-index: 0;
+  min-width: 100%;
+  min-height: 100%;
+ // width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+	">
+  <source src="http://ia800305.us.archive.org/26/items/CorporateCloudTimeLapse/CorporateCloudH264.mp4" type="video/mp4" />
+  <source src="media/demo.ogv" type="video/ogg" />
+  <source src="media/demo.webm" type="video/webm" />
+  </video>'
+]
+
 { #category : #initialization }
 IRISAuthorizationPage >> initialize [
 
@@ -33,6 +53,7 @@ IRISAuthorizationPage >> renderCardContainerOn: html [
 	html div 	
 		class: 'card';
 		class: 'card-container';
+		style: 'z-index: 4;';
 		with: [ 
 			html html: ' <h4 style="border-bottom: 1px solid #c5c5c5;">
     <i class="glyphicon glyphicon-user">
@@ -50,7 +71,10 @@ IRISAuthorizationPage >> renderContentOn: html [
 
 	html div 
 		class: 'container';
-		with: [ self renderCardContainerOn: html ].
+		with: [ 
+			
+			html html: self htmlVideo.
+			self renderCardContainerOn: html ].
 	html script: self toggleScript	
 ]
 

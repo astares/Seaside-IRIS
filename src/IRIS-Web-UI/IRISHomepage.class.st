@@ -48,6 +48,7 @@ IRISHomepage >> initialize [
 
 { #category : #rendering }
 IRISHomepage >> renderContentOn: html [
+	 
 	html render: loginPage.
 	html script: 'addToHomescreen();'
 ]
