@@ -2,24 +2,28 @@
 Login dialog
 "
 Class {
-	#name : #IRISLoginDialog,
+	#name : #IRISLoginComponent,
 	#superclass : #WAComponent,
-	#category : #'IRIS-Web-Components-Dialogs'
+	#category : #'IRIS-Web-Components-Authorization'
 }
 
 { #category : #rendering }
-IRISLoginDialog >> renderContentOn: html [
-	self renderImageOn: html.
-	self renderProfileNameOn: html.
-	self renderFormOn: html.
-	html html: 
-	           '<a href="#" class="forgot-password">
-                Forgot your password?
-            </a>'
+IRISLoginComponent >> renderContentOn: html [
+	html div id: 'form-login'; class: 'form-authorization';
+	with: [ 
+		self renderImageOn: html.
+		self renderProfileNameOn: html.
+		self renderFormOn: html.
+		html html: 
+	           '<a href="#" class="forgot-password" id="action-reminder">
+                Forgot your password
+            </a>'.
+ 	].
+ 
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderFormContentOn: html [ 
+IRISLoginComponent >> renderFormContentOn: html [ 
 
 	html html: '<span id="reauth-email" class="reauth-email"></span>'.
 
@@ -42,7 +46,7 @@ IRISLoginDialog >> renderFormContentOn: html [
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderFormOn: html [
+IRISLoginComponent >> renderFormOn: html [
 		html form 	
 				class: 'form-signin';
 				with: [ self renderFormContentOn: html ]
@@ -50,7 +54,7 @@ IRISLoginDialog >> renderFormOn: html [
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderImageOn: html [
+IRISLoginComponent >> renderImageOn: html [
 	html image
 		id: 'profile-img';
 		class: 'profile-img-card';
@@ -58,7 +62,7 @@ IRISLoginDialog >> renderImageOn: html [
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderPasswordOn: html [
+IRISLoginComponent >> renderPasswordOn: html [
 
 	html
 		tbsInputGroup: [
@@ -73,7 +77,7 @@ IRISLoginDialog >> renderPasswordOn: html [
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderProfileNameOn: html [
+IRISLoginComponent >> renderProfileNameOn: html [
 
 	html paragraph 
 		id: 'profile-name';
@@ -83,7 +87,7 @@ IRISLoginDialog >> renderProfileNameOn: html [
 ]
 
 { #category : #'private - rendering' }
-IRISLoginDialog >> renderUserNameOn: html [
+IRISLoginComponent >> renderUserNameOn: html [
 	html
 		tbsInputGroup: [ 			
 			IRISApplicationSettings loginNameType = #email
@@ -104,16 +108,16 @@ IRISLoginDialog >> renderUserNameOn: html [
 ]
 
 { #category : #scripting }
-IRISLoginDialog >> script [
+IRISLoginComponent >> script [
 	"This script checks for ENTER in the edit fields and if pressed triggers a click (submit) on the login dialog.
 	 see http://stackoverflow.com/questions/8294465/making-enter-key-on-an-html-form-submit-instead-of-activating-button
 	"
 	
 	^' 
 	$("#inputUsername").focus();
-$("#inputUsername").select();
+	$("#inputUsername").select();
 			 
-$("#form-signin input").keypress(function (e) {
+	$("#form-signin input").keypress(function (e) {
 			alert("hi");
 		  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {				
             $("#loginDialog button[type=submit]").click();
@@ -122,5 +126,7 @@ $("#form-signin input").keypress(function (e) {
             return true;
         }
     });
+
+	
 	'
 ]
