@@ -17,10 +17,9 @@ IRISReminderComponent >> html [
     <form accept-charset="UTF-8" role="form" id="login-recordar" method="post">
       <fieldset>
         <span class="help-block">
-          Enter the E-Mail address you use to log in to your account
-          <br>
-          We''ll send you an email with instructions to choose a new password.
-          End of statement list encountered ->End of statement list encountered -></span>
+          Enter the E-Mail address you use to log in to your account.
+          <br><br>
+          We''ll send you an email with instructions to choose a new password.</span>
         <div class="form-group input-group">
           <span class="input-group-addon">
             @
