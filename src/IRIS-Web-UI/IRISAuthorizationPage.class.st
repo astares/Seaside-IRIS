@@ -26,14 +26,14 @@ IRISAuthorizationPage >> htmlVideo [
 	^'<video width="300" height="150" autoplay="autoplay" loop="loop" muted="" style="
 	 position: fixed;
   top: 50%; left: 50%;
-  z-index: 0;
+  z-index: -10;
   min-width: 100%;
   min-height: 100%;
  // width: auto;
   height: auto;
   transform: translate(-50%, -50%);
 	">
-  <source src="http://ia800305.us.archive.org/26/items/CorporateCloudTimeLapse/CorporateCloudH264.mp4" type="video/mp4" />
+  <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Browsing.mp4" type="video/mp4" />
   <source src="media/demo.ogv" type="video/ogg" />
   <source src="media/demo.webm" type="video/webm" />
   </video>'
@@ -91,8 +91,7 @@ IRISAuthorizationPage >> style [
  */
 body, html {
     height: 100%;
-    background-repeat: no-repeat;
-    background-color: #003D78;
+    
 }
 
 .card-container.card {
