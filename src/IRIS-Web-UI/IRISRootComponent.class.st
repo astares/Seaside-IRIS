@@ -21,17 +21,22 @@ IRISRootComponent class >> contextRoot [
 	^self subclassResponsibility 
 ]
 
+{ #category : #testing }
+IRISRootComponent class >> isAbstract [ 
+
+	^self == IRISRootComponent
+]
+
 { #category : #registration }
 IRISRootComponent class >> register [
-	"Register the application"
-	<script>
+	"Register the application"	 
 	
 	|application|
 	application := WAAdmin register: self asApplicationAt: self contextRoot.	
 	application 
 		addLibrary: IRISFileLibrary;
 		addLibrary: JQDeploymentLibrary;
-		addLibrary: TBSDevelopmentLibrary;
+		addLibrary: SBSDevelopmentLibrary;
 		addLibrary: FAWDevelopmentLibrary. 
 	^application
 ]
