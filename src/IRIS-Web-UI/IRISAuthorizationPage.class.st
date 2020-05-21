@@ -33,7 +33,7 @@ IRISAuthorizationPage >> htmlVideo [
   height: auto;
   transform: translate(-50%, -50%);
 	">
-  <source src="http://localhost:8080/files/IRISFileLibrary/Background1280720.mp4" type="video/mp4" /> 
+  <source src="https://github.com/astares/Seaside-IRIS/blob/master/www/res/Background1280720.mp4?raw=true" type="video/mp4" /> 
   </video>'
 ]
 
