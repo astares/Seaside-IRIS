@@ -21,7 +21,7 @@ IRISAuthorizationPage >> children [
 
 { #category : #rendering }
 IRISAuthorizationPage >> htmlVideo [
-	"see http://www.beachfrontbroll.com/p/cities-and-traffic.html"
+	"see https://pixabay.com/videos/abstract-blue-wave-background-12902/"
 	
 	^'<video width="300" height="150" autoplay="autoplay" loop="loop" muted="" style="
 	 position: fixed;
@@ -33,9 +33,7 @@ IRISAuthorizationPage >> htmlVideo [
   height: auto;
   transform: translate(-50%, -50%);
 	">
-  <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Browsing.mp4" type="video/mp4" />
-  <source src="media/demo.ogv" type="video/ogg" />
-  <source src="media/demo.webm" type="video/webm" />
+  <source src="https://ia800305.us.archive.org/26/items/CorporateCloudTimeLapse/CorporateCloudH264.mp4" type="video/mp4" /> 
   </video>'
 ]
 
@@ -55,7 +53,7 @@ IRISAuthorizationPage >> renderCardContainerOn: html [
 		class: 'card-container';
 		style: 'z-index: 4;';
 		with: [ 
-			html html: ' <h4 style="border-bottom: 1px solid #c5c5c5;">
+			html html: '<h4 style="border-bottom: 1px solid #c5c5c5;">
     <i class="glyphicon glyphicon-user">
     </i>
     Account Access
@@ -70,7 +68,7 @@ IRISAuthorizationPage >> renderCardContainerOn: html [
 IRISAuthorizationPage >> renderContentOn: html [
 
 	html div 
-		class: 'container';
+		class: 'container-fluid';
 		with: [ 
 			
 			html html: self htmlVideo.
@@ -148,26 +146,12 @@ body, html {
     min-height: 1em;
 }
 
-.reauth-email {
-    display: block;
-    color: #404040;
-    line-height: 2;
-    margin-bottom: 10px;
-    font-size: 14px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
 
 .form-signin input[type=email],
 .form-signin input[type=password],
 .form-signin input[type=text],
-.form-signin button {
-    width: 100%;
+.form-signin button {   
     display: block;	 
     z-index: 1;
 	margin-bottom: 10px;
@@ -196,10 +180,8 @@ body, html {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #0066CC;
 }
 
-.btn-signin {
-    /*background-color: #4d90fe; */
-    background-color: #0066CC;
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+.btn-signin {  
+    background-color: #0066CC;   
     padding: 0px;
     font-weight: 700;
     font-size: 14px;

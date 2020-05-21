@@ -90,12 +90,14 @@ IRISIconCache class >> iconCache [
 { #category : #accessing }
 IRISIconCache class >> iconNamed: aSymbol [
 	"Returns the icon with the given name"
-
+	|selector|
+	selector := (aSymbol , 'Contents') asSymbol.
+	(self canUnderstand: selector) ifFalse: [ ^super iconNamed: aSymbol ].
 	^ self iconCache
 		at: aSymbol
 		ifAbsentPut: [ 
 			Form
-				fromBinaryStream: (self perform: (aSymbol , 'Contents') asSymbol) base64Decoded readStream ]
+				fromBinaryStream: (self perform: selector) base64Decoded readStream ]
 ]
 
 { #category : #icons }
