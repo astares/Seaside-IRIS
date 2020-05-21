@@ -65,10 +65,10 @@ IRISLoginComponent >> renderImageOn: html [
 IRISLoginComponent >> renderPasswordOn: html [
 
 	html
-		tbsInputGroup: [
-			html tbsInputGroupAddOn: [ html tbsGlyphIcon iconLock ].
+		inputGroup: [
+			html inputGroupPrepend: [ "html tbsGlyphIcon iconLock" ].
 			html passwordInput 
-				tbsFormControl;
+				formControl;
 				id: 'inputPassword';
 				placeholder: 'Password'; 
 				"callback: [ :value | credentials password: value ];	"
@@ -89,22 +89,28 @@ IRISLoginComponent >> renderProfileNameOn: html [
 { #category : #'private - rendering' }
 IRISLoginComponent >> renderUserNameOn: html [
 	html
-		tbsInputGroup: [ 			
+		inputGroup: [ 			
 			IRISApplicationSettings loginNameType = #email
-				ifTrue: [ html tbsInputGroupAddOn: [ html tbsGlyphIcon iconEnvelope ].
+				ifTrue: [ html inputGroupPrepend: [ "html glyphIcon iconEnvelope" ].
 					html emailInput
 						id: 'inputUsername';
-						tbsFormControl;
+						formControl ;
 						placeholder: 'E-Mail';
 						required;
 						autofocus ]
-				ifFalse: [ html tbsInputGroupAddOn: [ html tbsGlyphIcon iconUser ].
+				ifFalse: [ html inputGroupPrepend: [ "html tbsGlyphIcon iconUser" ].
 					html textInput
 						id: 'inputUsername';
-						tbsFormControl;
+						formControl;
 						placeholder: 'Username';
 						required;
 						autofocus ] ]
+]
+
+{ #category : #rendering }
+IRISLoginComponent >> rendererClass [
+	
+	^ SBSHtmlCanvas 
 ]
 
 { #category : #scripting }
