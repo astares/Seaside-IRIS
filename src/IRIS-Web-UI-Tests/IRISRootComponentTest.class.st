@@ -14,7 +14,7 @@ IRISRootComponentTest class >> isAbstract [
 ]
 
 { #category : #accessing }
-IRISRootComponentTest >> defaulTestClass [
+IRISRootComponentTest >> defaultTestClass [
 
 	^self subclassResponsibility 
 ]

@@ -33,7 +33,7 @@ IRISAuthorizationPage >> htmlVideo [
   height: auto;
   transform: translate(-50%, -50%);
 	">
-  <source src="https://ia800305.us.archive.org/26/items/CorporateCloudTimeLapse/CorporateCloudH264.mp4" type="video/mp4" /> 
+  <source src="http://localhost:8080/files/IRISFileLibrary/Background1280720.mp4" type="video/mp4" /> 
   </video>'
 ]
 
@@ -66,7 +66,7 @@ IRISAuthorizationPage >> renderCardContainerOn: html [
 
 { #category : #rendering }
 IRISAuthorizationPage >> renderContentOn: html [
-
+	html break;break.
 	html div 
 		class: 'container-fluid';
 		with: [ 
